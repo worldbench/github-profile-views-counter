@@ -1,0 +1,16 @@
+name: Repository Views Counter
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update views count
+        uses: antonkomarev/github-profile-views-counter-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: worldbench/survey
